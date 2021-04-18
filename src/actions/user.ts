@@ -1,0 +1,25 @@
+import {LOGIN, REGISTER, LOGOUT} from '../constants/actionTypes';
+import * as api from '../api/user';
+import { UserType } from '../types/basicTypes';
+
+export const register = (user: UserType) => async (dispatch: any) => {
+    try {
+        await api.register(user);
+        dispatch({type: REGISTER, payload: user});
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const login = (user: UserType) => async (dispatch: any) => {
+    try {
+        const {data: userData} = await api.login(user);
+        dispatch({type: LOGIN, payload: userData});
+    } catch (error) {
+        console.log(error);   
+    }
+};
+
+export const logout = () => async (dispatch: any) => {
+    dispatch({type: LOGOUT});
+};
