@@ -7,7 +7,7 @@ export const register = (user: UserType) => async (dispatch: any) => {
         await api.register(user);
         dispatch({type: REGISTER, payload: user});
     } catch (error) {
-        console.log(error);
+        console.log(error.response);
     }
 };
 
@@ -16,7 +16,7 @@ export const login = (user: UserType) => async (dispatch: any) => {
         const {data: userData} = await api.login(user);
         dispatch({type: LOGIN, payload: userData});
     } catch (error) {
-        console.log(error);   
+        console.log(error.response);   
     }
 };
 
