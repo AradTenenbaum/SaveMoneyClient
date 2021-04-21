@@ -21,6 +21,7 @@ function Register() {
       passwordAgain: ""
     }
   );
+  console.log(values);
   return (
     <div>
       <Form inverted onSubmit={onSubmit}>

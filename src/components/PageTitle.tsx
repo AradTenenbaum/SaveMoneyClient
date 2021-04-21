@@ -1,13 +1,30 @@
-import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import React from "react";
+import { Icon } from "semantic-ui-react";
 
-function PageTitle() {
-    return (
+function PageTitle({ set }: any) {
+  return (
+    <div>
+      {set === "big" ? (
         <div>
-            <Icon name="money bill alternate outline" size="massive"/>
-            <h1 style={{fontWeight: "lighter", fontSize: "60px"}}>Save money</h1>
+          <Icon inverted name="money bill alternate outline" size="massive" />
+          <h1
+            style={{ fontWeight: "lighter", fontSize: "60px", color: "white" }}
+          >
+            Save money
+          </h1>
         </div>
-    )
+      ) : (
+        <div>
+          <Icon inverted name="money bill alternate outline" size="huge" />
+          <h3
+            style={{ fontWeight: "lighter", fontSize: "20px", color: "white" }}
+          >
+            Save money
+          </h3>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default PageTitle
+export default PageTitle;

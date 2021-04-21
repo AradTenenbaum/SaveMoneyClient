@@ -8,14 +8,13 @@ import {login} from '../actions/user';
 function Login() {
     // Hooks
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.user);
   const { onChange, onSubmit, Clear, values } = useForm(() => {
     dispatch(login({ username: values.username, password: values.password}));
   }, {
       username: "",
       password: ""
   });
-  console.log(user);
+  console.log(values);
   return (
     <div>
       <Form inverted onSubmit={onSubmit}>
