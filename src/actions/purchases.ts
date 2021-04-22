@@ -31,7 +31,7 @@ export const deletePurchase = (token: string, purchaseId: string) => async (disp
 
 export const deleteAllPurchases = (token: string, id: string) => async (dispatch: any) => {
     try {
-        await api.deletePurchase(token, id);
+        await api.deleteAllPurchases(token, id);
         dispatch({type: DELETE_ALL});
     } catch (error) {
         console.log(error);

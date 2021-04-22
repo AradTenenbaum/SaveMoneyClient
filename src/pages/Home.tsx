@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Form, Icon, Popup } from "semantic-ui-react";
 
-import { addPurchase, getAll } from "../actions/purchases";
+import { deleteAllPurchases, getAll } from "../actions/purchases";
 import { logout } from "../actions/user";
+import AddModal from "../components/AddModal";
 import PageTitle from "../components/PageTitle";
 import ScrollArea from "../components/ScrollArea";
-import { useForm } from "../hooks/useForm";
+import '../css/Home.css';
 
 function Home() {
   // Hooks
@@ -16,13 +17,9 @@ function Home() {
   const user = useSelector((state: any) => state.user);
   const purchases = useSelector((state: any) => state.purchase);
   const [money, setMoney] = useState(0);
-  const {onChange, onSubmit, Clear, values} = useForm(() => {
-    dispatch(addPurchase(user.token, {_id: "", name: values.name, price: parseFloat(values.price), userId: user.user._id}));
-    Clear();
-  }, {
-    name: "",
-    price: 0
-  });
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+   
+
   useEffect(() => {
     if (user) {
       dispatch(getAll(user.token, user.user._id));
@@ -53,7 +50,6 @@ function Home() {
     currency: "ILS",
   });
 
-  console.log(values);
 
   return (
     <div>
@@ -80,38 +76,22 @@ function Home() {
         />
       </div>
       <PageTitle set="small" />
-      <h1 style={{ color: "white", fontSize: "50px" }}>
+      <h1 style={{ color: "white", fontSize: "50px", overflow: "auto", marginTop: "15px", marginBottom: "5px" }}>
         {formatter.format(money)}
       </h1>
-
-      <Form onSubmit={onSubmit} inverted size="mini">
-        <Form.Group widths="equal">
-          <Form.Input
-            fluid
-            label="Product"
-            placeholder="Product name"
-            name="name"
-            onChange={onChange}
-            value={values.name}
-          />
-          <Form.Input
-            fluid
-            label="Price"
-            placeholder="How much it costs ₪"
-            type="number"
-            step={0.01}
-            min="0"
-            width="4"
-            name="price"
-            onChange={onChange}
-            value={values.price}
-          />
-          <Form.Button label="Add" fluid width="3" size="mini" >
-            +
-          </Form.Button>
-        </Form.Group>
-      </Form>
+          <Button className="button2" fluid width="3" size="medium" color="teal" onClick={() => {
+            setIsOpenModal(true);
+          }} >
+            <Icon name="shop" />
+            Add to purchases
+          </Button>
+          <Button fluid size="medium" onClick={() => {
+            dispatch(deleteAllPurchases(user.token, user.user._id));
+          }}>
+            Clear
+          </Button>
       <ScrollArea purchases={purchases}/>
+      <AddModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
     </div>
   );
 }

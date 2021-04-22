@@ -14,6 +14,7 @@ export const register = (user: UserType) => async (dispatch: any) => {
 export const login = (user: UserType) => async (dispatch: any) => {
     try {
         const {data: userData} = await api.login(user);
+        localStorage.setItem("jwtToken", userData.token);
         dispatch({type: LOGIN, payload: userData});
     } catch (error) {
         console.log(error.response);   
@@ -21,5 +22,6 @@ export const login = (user: UserType) => async (dispatch: any) => {
 };
 
 export const logout = () => async (dispatch: any) => {
+    localStorage.removeItem("jwtToken");
     dispatch({type: LOGOUT});
 };

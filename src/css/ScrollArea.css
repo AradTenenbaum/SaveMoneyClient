@@ -1,16 +1,17 @@
 
 .scroll {
-  height: 300px;
+  height: 360px;
   width: 100%;
   overflow: auto;
   /* border: 1px solid #666; */
   /* background-color: #ccc; */
   padding: 8px;
   color: white;
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 767px) {
     .scroll{
-        height: 200px;
+        height: 380px;
     }
 }

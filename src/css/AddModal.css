@@ -1,0 +1,19 @@
+.my-modal-content {
+    background-color: rgb(33, 199, 42)!important;
+    color: white!important;
+    margin-top: 10px!important;
+}
+
+.mybgcolor {
+    background-color: #0c1d34!important;
+}
+
+.btn-discard {
+    margin-top: 10px!important;
+
+}
+
+/* .bottom-btns{
+    display: flex;
+    justify-content: space-between;
+} */
