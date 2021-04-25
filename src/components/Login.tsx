@@ -14,17 +14,16 @@ function Login() {
       username: "",
       password: ""
   });
-  console.log(values);
   return (
     <div>
       <Form inverted onSubmit={onSubmit}>
         <Form.Field>
           <label style={{ color: "white" }}>Username</label>
-          <input type="text" placeholder="Username" value={values.username} name="username" onChange={onChange}/>
+          <input autoComplete="off" type="text" placeholder="Username" value={values.username} name="username" onChange={onChange}/>
         </Form.Field>
         <Form.Field>
           <label style={{ color: "white" }}>Password</label>
-          <input type="password" placeholder="Password" value={values.password} name="password" onChange={onChange} />
+          <input autoComplete="off" type="password" placeholder="Password" value={values.password} name="password" onChange={onChange} />
         </Form.Field>
         <Button type="submit" style={{color: "#0c1d34"}}>Submit</Button>
       </Form>

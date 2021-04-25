@@ -8,7 +8,7 @@ function PageTitle({ set }: any) {
         <div>
           <Icon inverted name="money bill alternate outline" size="massive" />
           <h1
-            style={{ fontWeight: "lighter", fontSize: "60px", color: "white" }}
+            style={{ fontWeight: "lighter", fontSize: "60px", color: "white", marginTop: "0px" }}
           >
             Save money
           </h1>

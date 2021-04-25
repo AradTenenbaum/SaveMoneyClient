@@ -46,6 +46,7 @@ function AddModal({
         <Form inverted onSubmit={onSubmit} size="big">
           <Form.Group widths="equal">
             <Form.Input
+              autoComplete="off"
               fluid
               label="Product"
               placeholder="Product name"
@@ -54,6 +55,7 @@ function AddModal({
               value={values.name}
             />
             <Form.Input
+              autoComplete="off"
               fluid
               label="Price"
               placeholder="How much it costs ₪"

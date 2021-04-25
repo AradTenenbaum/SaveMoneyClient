@@ -21,7 +21,8 @@ function Home() {
    
 
   useEffect(() => {
-    if (user) {
+    if (user && user.token) {
+      console.log(user.user);
       dispatch(getAll(user.token, user.user._id));
     }
   }, []);
