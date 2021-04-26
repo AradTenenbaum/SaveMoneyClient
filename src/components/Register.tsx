@@ -14,9 +14,9 @@ function Register() {
     () => {
       if (values.password === values.passwordAgain && isChecked) {
         dispatch(
-          register({ username: values.username, password: values.password })
+          register({ username: values.username, password: values.password }, setError)
         );
-        setError("Details error: username needs to be at least 3 digits and password 6 digits");
+        // setError("Details error: username needs to be at least 3 digits and password 6 digits");
       } else {
         if(values.password !== values.passwordAgain) {
           setError("Passwords must be equal");

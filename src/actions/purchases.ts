@@ -7,7 +7,7 @@ export const getAll = (token: string, id: string) => async (dispatch: any) => {
         const {data} = await api.getAll(token, id);
         dispatch({type: GET_ALL, list: data});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 };
 
@@ -16,7 +16,7 @@ export const addPurchase = (token: string, purchase: PurchasesType) => async (di
         const {data} = await api.addPurchase(token, purchase);
         dispatch({type: ADD, one: data});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 };
 
@@ -25,7 +25,7 @@ export const deletePurchase = (token: string, purchaseId: string) => async (disp
         await api.deletePurchase(token, purchaseId);
         dispatch({type: DELETE, one: purchaseId});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 };
 
@@ -34,6 +34,6 @@ export const deleteAllPurchases = (token: string, id: string) => async (dispatch
         await api.deleteAllPurchases(token, id);
         dispatch({type: DELETE_ALL});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 };

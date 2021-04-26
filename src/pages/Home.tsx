@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Icon, Popup } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
+import { Button, Icon, Popup } from "semantic-ui-react";
 
 import { deleteAllPurchases, getAll } from "../actions/purchases";
 import { logout } from "../actions/user";
@@ -22,7 +22,7 @@ function Home() {
 
   useEffect(() => {
     if (user && user.token) {
-      console.log(user.user);
+      // console.log(user.user);
       dispatch(getAll(user.token, user.user._id));
     }
   }, []);
@@ -91,7 +91,7 @@ function Home() {
           }}>
             Clear
           </Button>
-      <ScrollArea purchases={purchases}/>
+      {purchases.length > 0 ? <ScrollArea purchases={purchases}/> : <h1 style={{color: "white"}}>Loading...</h1>}
       <AddModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
     </div>
   );

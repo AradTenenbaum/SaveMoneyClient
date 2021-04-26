@@ -7,7 +7,7 @@ let initialState: UserType = null;
 
 if(localStorage.getItem("jwtToken")){
     const decodedToken: {user : {_id?: string, username: string, password: string}, _doc: {_id?: string, username: string, password: string}} = jwtDecode(<string>localStorage.getItem("jwtToken"));
-    console.log(decodedToken)
+    // console.log(decodedToken)
     initialState = {
         user: decodedToken.user ? decodedToken.user : decodedToken._doc,
         token: localStorage.getItem("jwtToken")
