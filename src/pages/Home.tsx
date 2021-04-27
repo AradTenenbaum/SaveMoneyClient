@@ -91,7 +91,7 @@ function Home() {
           }}>
             Clear
           </Button>
-      {purchases.length > 0 ? <ScrollArea purchases={purchases}/> : <h1 style={{color: "white"}}>Loading...</h1>}
+      {purchases.length > 0 ? <ScrollArea purchases={purchases}/> : <h1 style={{color: "white"}}>Add a purchase...</h1>}
       <AddModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
     </div>
   );
